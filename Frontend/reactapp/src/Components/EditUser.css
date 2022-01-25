@@ -1,15 +1,14 @@
 
 /* overlay */
-#overlay{
-    background-color: black;
+.overlay{
+    background-color: rgba(0, 0, 0,0.5);
     position: fixed;
-    top:0;
+    top: 0;
     bottom: 0;
-    left:0;
-    right:0;
-    opacity: 0.8;
-    z-index: -1;
-    /* visibility: hidden; */
+    left: 0;
+    right: 0;
+    /* opacity: 0.9; */
+    z-index:5;
 }
 /* display container */
 .user-image{
@@ -17,7 +16,7 @@
 }
 
 .user-info{
-    border:2px solid black;
+    border:none;
     background-color: white;
     border-radius: 10px;
     text-align: center;
@@ -54,18 +53,35 @@ text-align: left;
     width: 90%;
 }
 
-.btn-save{
+.btn{
     border: none;
     border-radius: 5px;
-    background-color: #7A0BC0;
-    color: white;
     cursor: pointer;
     font-size: 16px;
-    margin: 20px auto auto 40px;
+    margin-top: 20px;
     height: 35px;
     width: 100px;
+    color: white;
 }
 
-.btn-save:hover{
+.save{
+    background-color: #7A0BC0;
+}
+
+.save:hover{
     background-color:hsl(277, 89%, 50%);
+}
+
+.cancel{
+    background-color: rgb(182, 26, 26);
+    margin-left: 20px;
+}
+
+.cancel:hover{
+    background-color:hsl(0, 75%, 51%) ;
+}
+
+.btn-div{
+    padding-left: 40px;
+    text-align:left;
 }
