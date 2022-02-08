@@ -1,5 +1,5 @@
 import React from "react"
-import "./EditUser.css";
+import "../EditUser.css";
 
 function Input(props){
     const {label,value,setUser,name} = props;

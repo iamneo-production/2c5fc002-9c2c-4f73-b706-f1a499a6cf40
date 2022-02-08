@@ -11,4 +11,20 @@ const users=[
     }
 ]
 
+const userNavLinks = [
+    {
+        id:'productHomeButton',
+        name:'Products'
+    },
+    {
+        id:'productsCartButton',
+        name:'Cart'
+    },
+    {
+        id:'productsOrderButton',
+        name:'My Orders'
+    }
+]
+
+export {userNavLinks};
 export default users;
