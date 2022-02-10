@@ -48,5 +48,5 @@
 .footer button:hover{
     transform: scale(.9);
     color: antiquewhite;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
 }
