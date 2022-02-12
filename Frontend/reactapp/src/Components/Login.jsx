@@ -1,8 +1,6 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Fragment, useState, useRef } from "react";
 import img1 from "../Image/Proj.png";
-import {Link} from 'react-router-dom'
-
 
 const Login = (props) => {
   const [isError, setisError] = useState(false);
@@ -33,7 +31,7 @@ const Login = (props) => {
 
       <Container>
         <Row>
-          <Col lg={6} md={6} sm={12}>
+          <Col lg={7} md={6} sm={12}>
             <form className="text-left" onSubmit={onSubmit}>
               <Form.Group className="mb-3">
                 <Form.Control
@@ -70,9 +68,9 @@ const Login = (props) => {
               <br></br>
               
                 <small>Already a user?</small>
-                <Link to="\signup">    
+                <a href="\signup">    
                 <small className="reset"> SignUp</small>
-              </Link>
+              </a>
             </div>
           </Col>
           <Col lg={5} md={5} sm={12}>
@@ -84,4 +82,3 @@ const Login = (props) => {
   );
 };
 export default Login;
-
