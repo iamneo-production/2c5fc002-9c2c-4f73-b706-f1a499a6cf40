@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(100, 22, 173);
+  color: white;
+}
+
+.header-div {
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-top: 30px;
+  height: 4rem;
+  width: 33%;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer {
+  padding-top: 30px;
+  height: 4rem;
+  width: 100%;
+  text-align: center;
+}
+
+hr {
+  border: none;
+  background-color: grey;
+  height: 3px;
+  width: 85%;
+}
