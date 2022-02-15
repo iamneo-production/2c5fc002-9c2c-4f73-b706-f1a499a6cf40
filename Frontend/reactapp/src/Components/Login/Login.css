@@ -1,0 +1,74 @@
+.nav-bar
+{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(185, 137, 230);
+    
+}
+.outer{
+    background-color: white;
+    background-image:url('C:\Users\hp\Desktop\Amaze Pack\Frontend\reactapp\src\images\Login image.jpeg') ;
+    background-repeat: no-repeat;
+    background-position: right 30% bottom 45%;
+    background-size: 400px;
+    height:550px;
+    
+
+}
+p{
+    font-size: 25px; ;
+    font-weight: bold ;
+    color: white ;
+}
+
+.loginBox
+{
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+}
+
+form {
+    display: flex;
+    justify-content: left;
+}
+.form-group-1,.form-group-2
+{
+    font-size: 25px;
+    float: left;
+    
+}
+.form-control
+{
+    float: right;
+    margin-left: 20px;
+    background-image: linear-gradient(to right, white , blueviolet);
+    font-size: 25px;
+    
+}
+#submitButton
+{
+    width: min-content;
+    align-items: center;
+    background-color: blueviolet;
+    background-image: linear-gradient(to top right,rgb(153, 111, 192),rgba(255, 255, 255, 0.87),blueviolet);
+    font-size: 25px;
+    align-self: center;
+    
+    
+}
+#signupLink{
+    text-decoration: none;
+}
+
+h3{
+    
+    align-self: center;
+}
+
+h5{
+    color: crimson;
+}
