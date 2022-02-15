@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 import classes from "./Display.module.css";
@@ -18,7 +19,7 @@ const Display = (props) => {
             <div className={classes.footer}>
                 <Button>{props.btn}</Button>
             </div>
-        </Card>
+       </Card>
     )
 }
 

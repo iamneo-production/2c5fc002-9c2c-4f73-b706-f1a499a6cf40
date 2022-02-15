@@ -1,5 +1,4 @@
 import React from 'react';
-
 import CartItem from './CartItem';
 import Display from './Display/Display';
 
@@ -23,6 +22,7 @@ const cartItems = [
 
 
 
+
 const Cart = () => {
     const items = cartItems.map((cartItem,index) => {
         return <div><CartItem 
@@ -30,6 +30,7 @@ const Cart = () => {
                     productName={cartItem.name} 
                     price={cartItem.price}
                     quantity={cartItem.quantity}
+
                 /><hr/></div>
     })
 
