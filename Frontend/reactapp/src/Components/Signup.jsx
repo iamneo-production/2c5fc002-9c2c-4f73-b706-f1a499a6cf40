@@ -2,7 +2,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Col,Container,Row,Form, Button,} from 'react-bootstrap';
-import img1 from '../Image/Proj.png';
+import img1 from '../images/Login image.jpeg';
 
 const Signup = () => {
   const intialValues = {email:"",userName: "",mobileNumber:"",password:"",password1:""}
@@ -136,7 +136,7 @@ const Signup = () => {
         
 
         <Col lg={6} md={5} sm={12}>
-          <img className="w-60 h-60 " src={img1}></img>
+          <img className="w-60 h-60 " src={img1} alt="Signup"></img>
         </Col>
       </Row>
     </Container>

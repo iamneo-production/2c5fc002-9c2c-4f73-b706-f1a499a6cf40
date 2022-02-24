@@ -1,6 +1,9 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Fragment, useState, useRef } from "react";
-import img1 from "../Image/Proj.png";
+import img1 from '../images/Login image.jpeg';
+
 
 const Login = (props) => {
   const [isError, setisError] = useState(false);
@@ -74,7 +77,7 @@ const Login = (props) => {
             </div>
           </Col>
           <Col lg={5} md={5} sm={12}>
-            <img className="h-90 w-100 " src={img1}></img>
+            <img className="h-90 w-100 " src={img1} alt="Login"></img>
           </Col>
         </Row>
       </Container>
