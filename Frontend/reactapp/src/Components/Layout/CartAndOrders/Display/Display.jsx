@@ -1,12 +1,14 @@
-import React from "react";
-import classes from './Display.module.css';
-import Card from '../../../UI/Card';
+
+import React from 'react';
+
+import classes from "./Display.module.css";
+import Card from "../../../UI/Card";
 import Button from '../../../UI/Button';
 
 const Display = (props) => {
-    return (
+    return(
         <Card>
-            <header className="{classes.header}">
+            <header className={classes.header}>
                 <div id="productName" className={classes['header-div']}>Product Name</div>
                 <div id="price" className={classes['header-div']}>Price</div>
                 <div id="quantity" className={classes['header-div']}>Quantity</div>
@@ -17,8 +19,7 @@ const Display = (props) => {
             <div className={classes.footer}>
                 <Button>{props.btn}</Button>
             </div>
-
-        </Card>
+       </Card>
     )
 }
 

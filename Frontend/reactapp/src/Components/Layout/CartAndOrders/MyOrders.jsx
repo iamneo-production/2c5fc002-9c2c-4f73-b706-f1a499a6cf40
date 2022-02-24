@@ -1,6 +1,7 @@
 import React from 'react';
-import CartItem from './CartItem';
+
 import Display from './Display/Display';
+import CartItem from './CartItem';
 
 const cartItems = [
     {
@@ -17,26 +18,25 @@ const cartItems = [
         name:'LED lamp',
         price:'150',
         quantity:'1'
+    },
+    {
+        name:'Apple Watch I7',
+        price:'1000',
+        quantity:'1'
     }
 ]
 
-
-
-
-const Cart = () => {
+const MyOrders = (props) => {
     const items = cartItems.map((cartItem,index) => {
         return <div><CartItem 
                     key={`product${index+1}`} 
                     productName={cartItem.name} 
                     price={cartItem.price}
                     quantity={cartItem.quantity}
-
                 /><hr/></div>
     })
 
-    return(
-       <Display items={items} btn='Place Order' />
-    )
+    return <Display items={items} btn='Pay' />
 }
 
-export default Cart;
+export default MyOrders;

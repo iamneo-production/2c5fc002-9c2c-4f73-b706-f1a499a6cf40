@@ -35,6 +35,7 @@
 }
 
 ul,li{
+    color: white;
     font-weight: 400;
     display: inline-block;
     margin: 0 20px;
@@ -52,8 +53,8 @@ ul,li{
     transition: 0.3s;
 }
 
-.cllicked{
-    font-size: 20px;
+.clicked{
+    font-size: 23px;
     color: rgb(240, 221, 197);
 }
 
