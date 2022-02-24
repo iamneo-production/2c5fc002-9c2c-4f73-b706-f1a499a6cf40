@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './ProductItem.module.css';
+import Button from '../../UI/Button';
 
 function ProductItem(props){
     return(
@@ -13,7 +14,7 @@ function ProductItem(props){
                 <h3>${props.price}</h3>
             </div>
             <div className={classes.footer}>
-                <button>Add to Cart</button>
+                <Button>Add to Cart</Button>
             </div>
         </div>
     )
