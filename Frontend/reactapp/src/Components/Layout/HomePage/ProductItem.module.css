@@ -23,10 +23,12 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 20px;
+    margin: 20px auto 10px;
 }
 
 .description h3{
     font-size: 18px;
+    font-weight: bold;
 }
 
 .footer{

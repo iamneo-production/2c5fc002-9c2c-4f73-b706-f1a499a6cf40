@@ -1,22 +1,15 @@
 import React,{Fragment} from 'react';
+import {Outlet} from 'react-router-dom'
 
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import UserNavbar from '../../UI/NavBar/UserNavBar';
-import ProductList from './ProductList';
-import Cart from '../CartAndOrders/Cart';
-import MyOrders from '../CartAndOrders/MyOrders';
+// import ProductList from './ProductList';
+
 
 function HomePage(props){
     return(
         <Fragment>
-            <Router>
-                <UserNavbar id={props.id} /> 
-                <Routes>
-                    <Route path='/' exact element={<ProductList/>} />
-                    <Route path='/cart' exact element={<Cart/>} />
-                    <Route path='/myorders' exact element={<MyOrders/>} />
-                </Routes>
-            </Router>
+            <UserNavbar id={props.id} />
+            <Outlet />
         </Fragment>
     )
 }

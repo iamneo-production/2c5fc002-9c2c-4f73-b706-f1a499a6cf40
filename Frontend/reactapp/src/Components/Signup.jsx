@@ -1,8 +1,11 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState,useEffect,Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Col,Container,Row,Form, Button,} from 'react-bootstrap';
-import img1 from '../images/Login image.jpeg';
+import {Col,Container,Row,Form} from 'react-bootstrap';
+import img1 from '../images/Signup-image.png';
+
+import classes from './Signup.module.css';
+import Button from "./UI/Button";
 
 const Signup = () => {
   const intialValues = {email:"",userName: "",mobileNumber:"",password:"",password1:""}
@@ -66,17 +69,17 @@ const Signup = () => {
 
 
   return (
-  <div>
-    <h3 className="container-fluid bg-primary p-2 text-white" style={{textAlign:'center'}}> Register</h3>
-    
-
+  <Fragment>
+    <div className={classes.header}>
+      <h3>
+        Register
+      </h3>
+    </div>
     <Container>
-      
       <Row>
-        <Col lg={6} md={6} sm={12}>
-        <h2 style={{textAlign:'center'}}>Sign Up</h2>
+        <Col lg={6} md={5} sm={12}>
+        <h2 style={{textAlign:'center',marginTop:'25px'}}>Sign Up</h2>
         <Form  onSubmit={handleSubmit}>
-          <br/>
           <br/>
         <Form.Group className="mb-3" controlId="formBasicEmail">
       
@@ -115,12 +118,9 @@ const Signup = () => {
         </Form.Group>
         <p>{formErrors.password1}</p>
         <br/>
-
-        
-
         <center>
-          <Button variant="primary" type="submit" >
-          Submit
+          <Button type="submit" >
+            Submit
           </Button>
         </center>
       </Form>
@@ -136,11 +136,11 @@ const Signup = () => {
         
 
         <Col lg={6} md={5} sm={12}>
-          <img className="w-60 h-60 " src={img1} alt="Signup"></img>
+          <img className={classes.img} src={img1} alt="Signup"></img>
         </Col>
       </Row>
     </Container>
-    </div>
+    </Fragment>
   );
 };
 

@@ -63,3 +63,8 @@ ul,li{
     color: rgb(240, 221, 197);
     transform: scale(0.9);
 }
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}

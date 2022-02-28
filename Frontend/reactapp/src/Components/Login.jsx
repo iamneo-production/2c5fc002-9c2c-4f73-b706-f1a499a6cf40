@@ -1,8 +1,11 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { Fragment, useState, useRef } from "react";
-import img1 from '../images/Login image.jpeg';
+
+import Button from "./UI/Button";
+
+import classes from "./Login.module.css";
+import img1 from '../images/Signup-image.png';
 
 
 const Login = (props) => {
@@ -21,23 +24,21 @@ const Login = (props) => {
   };
   return (
     <Fragment>
-      <h3
-        className="container-fluid bg-primary p-2 text-white"
-        style={{ textAlign: "center" }}
-      >
-        Login
-      </h3>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-
+      <div className={classes.header}>
+        <h3>
+          Login
+        </h3>
+      </div>
+    
       <Container>
         <Row>
-          <Col lg={7} md={6} sm={12}>
-            <form className="text-left" onSubmit={onSubmit}>
+          <Col className={classes.column} lg={6} md={5} sm={12}>
+          <h2 style={{textAlign:'center',marginTop:'25px'}}>Login</h2>
+          <br/>
+            <Form className="text-left w-100" onSubmit={onSubmit}>
               <Form.Group className="mb-3">
                 <Form.Control
+                  className={classes['form-control']}
                   ref={Userid}
                   id="email"
                   type="email"
@@ -48,6 +49,7 @@ const Login = (props) => {
 
               <Form.Group className="mb-3">
                 <Form.Control
+                  className={classes['form-control']}
                   ref={Password}
                   id="password"
                   type="password"
@@ -65,7 +67,7 @@ const Login = (props) => {
                   Login
                 </Button>
               </div>
-            </form>
+            </Form>
 
             <div className="text-center">
               <br></br>
@@ -76,8 +78,8 @@ const Login = (props) => {
               </a>
             </div>
           </Col>
-          <Col lg={5} md={5} sm={12}>
-            <img className="h-90 w-100 " src={img1} alt="Login"></img>
+          <Col lg={5} md={4} sm={12}>
+            <img className={classes.img} src={img1} alt="Login"></img>
           </Col>
         </Row>
       </Container>

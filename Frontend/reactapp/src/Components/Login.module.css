@@ -1,0 +1,24 @@
+.header{
+    height: 5rem;
+    background-color: rgb(100, 22, 173);
+    color: white;
+    text-align: center;
+    padding-top:20px ;
+}
+
+
+.column{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-control{
+    width: 100%;
+}
+
+.img{
+    height: 450px;
+    width: 600px;
+}
