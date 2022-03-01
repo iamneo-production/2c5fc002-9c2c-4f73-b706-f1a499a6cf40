@@ -2,8 +2,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Fragment, useState, useRef } from "react";
 
-import Button from "./UI/Button";
+import {Link} from 'react-router-dom';
 
+import Button from "./UI/Button";
 import classes from "./Login.module.css";
 import img1 from '../images/Signup-image.png';
 
@@ -71,11 +72,10 @@ const Login = (props) => {
 
             <div className="text-center">
               <br></br>
-              
-                <small>Already a user?</small>
-                <a href="\signup">    
+              <small>Already a user?</small>
+                <Link to="/signup">    
                 <small className="reset"> SignUp</small>
-              </a>
+              </Link>
             </div>
           </Col>
           <Col lg={5} md={4} sm={12}>

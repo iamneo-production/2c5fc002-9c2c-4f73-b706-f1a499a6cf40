@@ -12,11 +12,6 @@
     top: 0;
 }
 
-/* .header{
-    font-size: 20px;
-    font-weight: bold;
-} */
-
 .logout{
     border: none;
     border-radius: 25px;
@@ -44,18 +39,17 @@ ul,li{
 .navlinks 
     li:hover{
     color: rgb(240, 221, 197);
-    transform: scale(1.1);
 } 
 
 .logout,li{
     cursor: pointer;
     font-size: 18px;
-    transition: 0.3s;
 }
 
-.clicked{
-    font-size: 23px;
+.active{
+    border-bottom: 5px solid rgb(240, 221, 197);
     color: rgb(240, 221, 197);
+    padding-bottom: 20px;
 }
 
 .logout:hover{

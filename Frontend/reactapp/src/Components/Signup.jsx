@@ -1,9 +1,12 @@
 import React from "react";
 import { useState,useEffect,Fragment } from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Col,Container,Row,Form} from 'react-bootstrap';
-import img1 from '../images/Signup-image.png';
 
+import {Link} from 'react-router-dom';
+
+import img1 from '../images/Signup-image.png';
 import classes from './Signup.module.css';
 import Button from "./UI/Button";
 
@@ -128,7 +131,7 @@ const Signup = () => {
 
       <div className="text-center">
           <small>Already a user?</small>
-         <a href="Login"><small className="reset"> Login</small></a> 
+         <Link to="/login"><small className="reset"> Login</small></Link> 
       </div>
 
 
