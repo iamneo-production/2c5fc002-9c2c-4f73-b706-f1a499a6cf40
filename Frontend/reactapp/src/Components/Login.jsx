@@ -2,17 +2,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Fragment, useState, useRef } from "react";
 
-import {Link} from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "./UI/Button";
 import classes from "./Login.module.css";
-import img1 from '../images/Signup-image.png';
-
+import img1 from "../images/Signup-image.png";
 
 const Login = (props) => {
   const [isError, setisError] = useState(false);
   const Userid = useRef();
   const Password = useRef();
+
+  const navigate = useNavigate();
+
   const onSubmit = (event) => {
     event.preventDefault();
     setisError(false);
@@ -22,24 +24,24 @@ const Login = (props) => {
       setisError(true);
       return;
     }
+    props.onLogin(true);
+    navigate("/home");
   };
   return (
     <Fragment>
       <div className={classes.header}>
-        <h3>
-          Login
-        </h3>
+        <h3>Login</h3>
       </div>
-    
+
       <Container>
         <Row>
           <Col className={classes.column} lg={6} md={5} sm={12}>
-          <h2 style={{textAlign:'center',marginTop:'25px'}}>Login</h2>
-          <br/>
+            <h2 style={{ textAlign: "center", marginTop: "25px" }}>Login</h2>
+            <br />
             <Form className="text-left w-100" onSubmit={onSubmit}>
               <Form.Group className="mb-3">
                 <Form.Control
-                  className={classes['form-control']}
+                  className={classes["form-control"]}
                   ref={Userid}
                   id="email"
                   type="email"
@@ -50,7 +52,7 @@ const Login = (props) => {
 
               <Form.Group className="mb-3">
                 <Form.Control
-                  className={classes['form-control']}
+                  className={classes["form-control"]}
                   ref={Password}
                   id="password"
                   type="password"
@@ -73,7 +75,7 @@ const Login = (props) => {
             <div className="text-center">
               <br></br>
               <small>Already a user?</small>
-                <Link to="/signup">    
+              <Link to="/signup">
                 <small className="reset"> SignUp</small>
               </Link>
             </div>

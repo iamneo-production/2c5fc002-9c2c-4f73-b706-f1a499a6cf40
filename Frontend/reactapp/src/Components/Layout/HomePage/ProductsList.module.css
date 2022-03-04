@@ -1,8 +1,7 @@
-.container{
-    background-color: #2f2f2f;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-row-gap: 50px;
-    margin-top: 5rem;
-    padding: 5% 5% 5% 7%;
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 50px;
+  margin-top: 5rem;
+  padding: 3% 5% 5% 10%;
 }
