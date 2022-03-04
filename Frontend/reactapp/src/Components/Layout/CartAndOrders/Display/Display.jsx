@@ -12,6 +12,7 @@ const Display = (props) => {
                 <div id="productName" className={classes['header-div']}>Product Name</div>
                 <div id="price" className={classes['header-div']}>Price</div>
                 <div id="quantity" className={classes['header-div']}>Quantity</div>
+                <div id="buy" className={classes['header-div']}></div>
             </header>
             <div>
                 {props.items}
