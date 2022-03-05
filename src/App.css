@@ -1,0 +1,189 @@
+/* .navdiv{
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: green;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.listItems{
+    float: left;
+}
+
+.navlabel{
+  display: block;
+  color: white;
+  padding: 20px 30px;
+  font-size: 130%;
+}
+
+.headerDiv{
+  position: fixed;
+  top: 68px;
+  background-color: black;
+  width: 100%;
+  min-height: 75px;
+}
+
+.headerLabel{
+  color: white;
+  height: 5vh;
+  width: 10%;
+  text-align: center;
+  float: left;
+  margin-left: 2%;
+  margin-top: 1.5%;
+  font-size: 120%;
+}
+
+.componentdiv{
+  background-color: rgb(46, 39, 32);
+  width: 69%;
+  min-height: 10vh;
+  border-radius: 10px;
+  margin-left: 0.2%;
+  margin-top: 0.5%;
+
+}
+
+.imagediv{
+  height: 5vh;
+  width: 10%;
+  text-align: center;
+  float: left;
+  margin-left: 5%;
+}
+
+.image{
+  height: 10vh;
+  width: 80%;
+}
+
+.labeldiv1{
+  color: white;
+  height: 5vh;
+  width: 10%;
+  text-align: center;
+  float: left;
+  margin-left: 7%;
+  margin-top: 1.5%;
+}
+
+.labeldiv2{
+  color: white;
+  height: 5vh;
+  width: 10%;
+  text-align: center;
+  float: left;
+  margin-left: 7.5%;
+  margin-top: 1.5%;
+}
+
+.labeldiv3{
+  color: white;
+  height: 5vh;
+  width: 10%;
+  text-align: center;
+  float: left;
+  margin-left: 7.5%;
+  margin-top: 1.5%;
+}
+
+.labeldivedit{
+  height: 3vh;
+  width: 3%;
+  text-align: center;
+  float: left;
+  margin-left: 10%;
+  margin-top: 1.5%;
+}
+
+.buttonedit{
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border-color: white;
+}
+
+.labeldivdelete{
+  height: 3vh;
+  width: 3%;
+  text-align: center;
+  float: left;
+  margin-left: 8%;
+  margin-top: 1.5%;
+}
+
+.buttondelete{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  border-color: white;
+}
+
+.Adddiv{
+  position: fixed;
+  right: 0.3%;
+  top: 150px;
+  background-color: rgba(214, 211, 205, 0.5);
+  height: 70vh;
+  width: 30%;
+  border-radius: 25px;
+}
+
+.addproductslabel{
+  color: white;
+  font-size: 120%;
+}
+
+.formdiv{
+  text-align: center;
+  margin-top: 7vh;
+}
+
+.inputtag{
+  width: 90%;
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
+  border-radius: 1vh;
+  border: 1px solid rgb(102, 102, 91);
+}
+
+.submitbutton{
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
+  background-color: rgb(19, 189, 19);
+  font-size: 110%;
+  border-radius: 1vh;
+}
+
+.submitbutton:hover{
+  background-color: rgb(76, 214, 76);
+  border-radius: 2vh;
+}
+
+.Editdiv{
+  border: 2px solid black;
+  position: fixed;
+  right: 20%;
+  top: 15%;
+  background-color: rgb(199, 180, 157);
+  height: 78vh;
+  width: 30%;
+  border-radius: 5px;
+} */
+
+
+
+
+@media all and (min-width:770px){
+    #AddItem{
+      position: fixed;
+      right: 2%;
+      top: 13%;
+  }
+}
