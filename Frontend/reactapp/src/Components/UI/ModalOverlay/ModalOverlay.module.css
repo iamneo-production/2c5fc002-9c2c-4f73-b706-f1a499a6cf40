@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.container {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 1rem;
+  left: 22rem;
+  width: 50%;
+  z-index: 100;
+}
+
+.header {
+  background-color: rgb(100, 22, 173);
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding-left: 30px;
+  padding-top: 5px;
+  height: 4rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.img-div {
+  margin: 20px;
+  width: 30%;
+}
+
+.img {
+  height: 150px;
+  width: 150px;
+}
+
+.info {
+  margin: 20px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  width: 30%;
+}
+
+.btns {
+  text-align: center;
+  width: 20%;
+}
+
+.btns button {
+  margin-top: 5rem;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 2px solid rgb(137, 76, 194);
+  border-radius: 10px;
+  color: rgb(100, 22, 173);
+  font-size: 25px;
+  height: 50px;
+  width: 40px;
+}
+
+.btns button:hover {
+  background-color: rgb(100, 22, 173);
+  color: white;
+}
+
+.footer {
+  text-align: right;
+  padding-bottom: 20px;
+  padding-right: 70px;
+}
+
+.footer button {
+  border-radius: 10px;
+  margin-left: 20px;
+  height: 40px;
+  width: 100px;
+}
+
+.save {
+  border: none;
+  background-color: rgb(100, 22, 173);
+  color: white;
+}
+
+.close {
+  border: 2px solid black;
+  color: black;
+}
+
+.save:hover {
+  background-color: rgb(119, 56, 179);
+}
+
+.close:hover {
+  border: none;
+  background-color: rgb(144, 25, 190);
+  color: white;
+}

@@ -1,0 +1,9 @@
+.width {
+  text-align: center;
+  font-weight: bold;
+  width: 50%;
+}
+
+.width h1 {
+  font-size: 2rem;
+}

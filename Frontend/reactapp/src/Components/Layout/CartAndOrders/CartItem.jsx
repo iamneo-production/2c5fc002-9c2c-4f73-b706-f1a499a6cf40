@@ -6,23 +6,29 @@ import { MdModeEdit } from "react-icons/md";
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const totalAmount = `$${(props.price * props.quantity).toFixed(2)}`;
   const qty = `${props.quantity} ps`;
 
   return (
     <div className={classes["item-container"]}>
       <div>{props.productName}</div>
       <div>{qty}</div>
-      <div>{totalAmount}</div>
+      <div>${props.totalAmount}</div>
       <div>
-        <MdModeEdit color="blueviolet" style={{ cursor: "pointer" }} />
+        <MdModeEdit
+          color="blueviolet"
+          style={{ cursor: "pointer" }}
+          onClick={() => props.onOpen(props.id)}
+        />
         <MdDelete
           style={{
-            "margin-left": "30px",
+            marginLeft: "30px",
             cursor: "pointer",
-            "margin-right": "20px",
+            marginRight: "20px",
           }}
           color="red"
+          onClick={() => {
+            props.onDelete(props.id);
+          }}
         />
         {props?.place === "cart" && (
           <button className={classes.btn}>Place Order</button>

@@ -2,11 +2,10 @@ import React from "react";
 
 import classes from "./Display.module.css";
 import Card from "../../../UI/Card";
-import Button from "../../../UI/Button";
 
 const Display = (props) => {
   return (
-    <Card>
+    <Card clname={classes.width}>
       <header className={classes.header}>
         <div id="productName" className={classes["header-div"]}>
           Product Name

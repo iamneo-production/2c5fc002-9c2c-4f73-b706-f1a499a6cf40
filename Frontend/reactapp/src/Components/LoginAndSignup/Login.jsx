@@ -4,9 +4,9 @@ import { Fragment, useState, useRef } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import Button from "./UI/Button";
+import Button from "../UI/Button";
 import classes from "./Login.module.css";
-import img1 from "../images/Signup-image.png";
+import img1 from "../../images/Signup-image.png";
 
 const Login = (props) => {
   const [isError, setisError] = useState(false);
