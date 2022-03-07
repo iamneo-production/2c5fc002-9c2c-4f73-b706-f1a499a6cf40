@@ -93,7 +93,7 @@ const Signup = () => {
               </Form.Group>
               <p>{formErrors.email}</p>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Control
                   type="text"
                   placeholder="Enter Username"
@@ -104,7 +104,7 @@ const Signup = () => {
               </Form.Group>
               <p>{formErrors.userName}</p>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="formBasicMobileNumber">
                 <Form.Control
                   type="text"
                   placeholder="Enter Mobilenumber"
@@ -126,7 +126,10 @@ const Signup = () => {
               </Form.Group>
               <p>{formErrors.password}</p>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group
+                className="mb-3"
+                controlId="formBasicReEnteredPassword"
+              >
                 <Form.Control
                   type="password"
                   placeholder="Confirm Password"

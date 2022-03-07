@@ -19,19 +19,33 @@ const CartItem = (props) => {
           style={{ cursor: "pointer" }}
           onClick={() => props.onOpen(props.id)}
         />
-        <MdDelete
-          style={{
-            marginLeft: "30px",
-            cursor: "pointer",
-            marginRight: "20px",
-          }}
-          color="red"
-          onClick={() => {
-            props.onDelete(props.id);
-          }}
-        />
+        {props?.place === "cart" ? (
+          <MdDelete
+            style={{
+              marginLeft: "30px",
+              cursor: "pointer",
+              marginRight: "20px",
+            }}
+            color="red"
+            onClick={() => {
+              props.onDelete(props.id);
+            }}
+          />
+        ) : (
+          <button
+            className={classes.cancel}
+            onClick={() => props.onCancel(props.id)}
+          >
+            Cancel Order
+          </button>
+        )}
         {props?.place === "cart" && (
-          <button className={classes.btn}>Place Order</button>
+          <button
+            className={classes.btn}
+            onClick={() => props.onPlaceOrder(props.id)}
+          >
+            Place Order
+          </button>
         )}
       </div>
     </div>

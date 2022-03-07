@@ -1,17 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import classes from "./ProductItem.module.css";
 import Button from "../../UI/Button";
 
+import { useCartCxt } from "../../assests/cart-context";
+
 function ProductItem(props) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const cartCxt = useCartCxt();
   const { product } = props;
 
   const addToCartHandler = () => {
-    product.quantity = 1;
-    // console.log(product);
-    props.onClick({ type: "ADD_TO_CART", value: product });
-    navigate("/cart");
+    if (cartCxt.cartItems.length < 5) {
+      product.quantity = 1;
+      props.onClick({ type: "ADD_TO_CART", value: product });
+    } else {
+      alert("Cant't add to cart. Your Cart is full :(");
+    }
   };
 
   return (

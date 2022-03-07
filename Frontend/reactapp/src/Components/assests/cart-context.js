@@ -40,7 +40,6 @@ const cartReducer = (prevState, action) => {
 
     if (index >= 0) {
       cloneProduct.quantity += 1;
-      console.log(cloneProduct.quantity);
       cloneProduct.totalAmount = (
         cloneProduct.quantity * cloneProduct.price
       ).toFixed(2);
@@ -63,7 +62,6 @@ const cartReducer = (prevState, action) => {
     updatedArray[index] = cloneProduct;
     return updatedArray;
   } else if (action.type === "REMOVE_FROM_CART") {
-    console.log("got into");
     updatedArray = [
       ...prevState.filter((item) => {
         return item.id !== action.value;

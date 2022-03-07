@@ -1,9 +1,11 @@
 .width {
   text-align: center;
   font-weight: bold;
+  font-size: 20px;
+  padding: 50px;
   width: 50%;
 }
 
-.width h1 {
-  font-size: 2rem;
+.width p {
+  margin-bottom: 20px;
 }

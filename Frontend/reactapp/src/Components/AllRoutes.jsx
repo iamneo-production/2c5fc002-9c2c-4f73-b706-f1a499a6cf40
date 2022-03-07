@@ -25,8 +25,8 @@ const AllRoutes = (props) => {
         <Route path="/*" element={<HomePage onLogout={props.changeIsLogged} />}>
           <Route element={<RequireAuth role={props.isLogged} />}>
             <Route path="home" element={<ProductList />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="myorders" element={<MyOrders />} />
+            <Route path="cart/*" element={<Cart />} />
+            <Route path="myorders/*" element={<MyOrders />} />
           </Route>
         </Route>
       </Routes>

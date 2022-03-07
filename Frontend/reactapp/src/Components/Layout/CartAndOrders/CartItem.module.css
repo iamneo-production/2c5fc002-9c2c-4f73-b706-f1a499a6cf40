@@ -12,8 +12,7 @@
   width: 33.33%;
 }
 
-.btn {
-  background-color: rgb(100, 22, 173);
+.item-container button {
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -22,6 +21,21 @@
   height: 30px;
 }
 
+.btn {
+  background-color: rgb(100, 22, 173);
+}
+
 .btn:hover {
   color: rgb(240, 221, 197);
+}
+
+.cancel {
+  background-color: rgb(192, 32, 32);
+  margin-left: 30px;
+}
+
+.cancel:hover {
+  border: 2px solid rgb(192, 32, 32);
+  color: rgb(192, 32, 32);
+  background-color: wheat;
 }
