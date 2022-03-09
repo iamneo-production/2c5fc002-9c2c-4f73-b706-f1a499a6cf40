@@ -7,7 +7,7 @@ const orderItems = [
   {
     id: "product-1",
     url: AppleWatch,
-    name: "Watch I7",
+    productName: "Watch I7",
     price: "1000",
     quantity: 2,
     totalAmount: "2000",

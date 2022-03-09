@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
 .header {
   border: none;
   background-color: rgb(100, 22, 173);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   color: white;
   display: flex;
+  font-family: "Montserrat", sans-serif;
   justify-content: space-around;
   align-items: center;
   position: fixed;

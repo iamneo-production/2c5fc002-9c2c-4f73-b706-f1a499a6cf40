@@ -7,10 +7,12 @@ import ModalOverlay from "../../UI/ModalOverlay/ModalOverlay";
 
 import { useMyOrdersCxt } from "../../assests/myorders-context";
 import EmptyPage from "./Display/EmptyPage";
+import { useProductsCxt } from "../../assests/products-context";
 
 const MyOrders = () => {
   const navigate = useNavigate();
   const myordersCxt = useMyOrdersCxt();
+  const productsCxt = useProductsCxt();
   const [haveToEditProduct, setHaveToEditProduct] = useState({});
 
   const { orderItems } = myordersCxt;
@@ -34,11 +36,18 @@ const MyOrders = () => {
     navigate("/myorders");
   };
 
-  const removeHandler = (productId) => {
+  const removeHandler = (productId, quantity) => {
     myordersCxt.myordersDispatchFn({
       type: "CANCEL_ORDER",
       value: productId,
     });
+    productsCxt.productsDispatchFn({
+      type: "CANCEL_ORDER",
+      value: { id: productId, quantity: quantity },
+    });
+    setTimeout(() => {
+      alert("Your order canceled successfully :) ");
+    }, 400);
   };
 
   const increceProductQuantity = () => {
@@ -79,7 +88,7 @@ const MyOrders = () => {
       <div key={`product${index + 1}`}>
         <CartItem
           id={item.id}
-          productName={item.name}
+          productName={item.productName}
           totalAmount={item.totalAmount}
           quantity={item.quantity}
           onOpen={openEditOverlayHandler}

@@ -12,8 +12,9 @@ function ProductItem(props) {
 
   const addToCartHandler = () => {
     if (cartCxt.cartItems.length < 5) {
-      product.quantity = 1;
-      props.onClick({ type: "ADD_TO_CART", value: product });
+      const newProduct = { ...product };
+      newProduct.quantity = 1;
+      props.onClick({ type: "ADD_TO_CART", value: newProduct });
     } else {
       alert("Cant't add to cart. Your Cart is full :(");
     }
@@ -22,10 +23,14 @@ function ProductItem(props) {
   return (
     <div id={props.id} className={classes.container}>
       <div>
-        <img className={classes.img} src={product.url} alt={product.name} />
+        <img
+          className={classes.img}
+          src={product.url}
+          alt={product.productName}
+        />
       </div>
       <div className={classes.description}>
-        <h3>{product.name}</h3>
+        <h3>{product.productName}</h3>
         <h3>${product.price}</h3>
       </div>
       <div className={classes.footer}>

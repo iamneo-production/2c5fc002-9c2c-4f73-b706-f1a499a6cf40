@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
+import { useProductsCxt } from "../assests/products-context";
 
-export default function AddItem(props) {
+export default function AddItem() {
+  const productsCxt = useProductsCxt();
   const [image, setImage] = useState("");
   const [productName, setProductName] = useState("");
   const [cost, setCost] = useState("");
@@ -9,7 +11,13 @@ export default function AddItem(props) {
 
   const submit = (e) => {
     e.preventDefault();
-    props.onAdd(image, productName, cost, quantity);
+    const newProduct = {
+      url: image,
+      productName: productName,
+      price: cost,
+      quantity: quantity,
+    };
+    productsCxt.productsDispatchFn({ type: "ADD_PRODUCT", value: newProduct });
     setImage("");
     setProductName("");
     setCost("");
@@ -17,27 +25,6 @@ export default function AddItem(props) {
   };
 
   return (
-    // <div className='Adddiv'>
-    //   <label className='addproductslabel'><center>Add Product</center></label>
-    //   <form onSubmit={submit}>
-    //     <div className='formdiv'>
-    //     <input className='inputtag' id='enterProductName' type='text' value={productName} placeholder='enter the product name' onChange={(e) => setProductName(e.target.value)}/>
-    //     </div>
-    //     <div className='formdiv'>
-    //     <input className='inputtag' id='enterProductPrice' type='number' value={cost} placeholder='enter the product price' onChange={(e) => setCost(e.target.value)}/>
-    //     </div>
-    //     <div className='formdiv'>
-    //     <input className='inputtag' id='enterProductImageUrl' type='text' value={image} placeholder='enter the product image url' onChange={(e) => setImage(e.target.value)}/>
-    //     </div>
-    //     <div className='formdiv'>
-    //     <input className='inputtag' id='enterProductQuantity' type='number' value={quantity} placeholder='enter the product quantity' onChange={(e) => setQuantity(e.target.value)}/>
-    //     </div>
-    //     <div className='formdiv'>
-    //     <input className='submitbutton' id='addProductButton' type='submit' value='Add'/>
-    //     </div>
-    //   </form>
-    // </div>
-
     <div
       className="container col-md-4"
       id="AddItem"
@@ -45,7 +32,6 @@ export default function AddItem(props) {
         float: "right",
         marginRight: "3%",
         marginTop: "-30px",
-        backgroundColor: "white",
         borderRadius: "15px",
         overflow: "hidden",
         backgroundColor: "rgb(100, 22, 173)",

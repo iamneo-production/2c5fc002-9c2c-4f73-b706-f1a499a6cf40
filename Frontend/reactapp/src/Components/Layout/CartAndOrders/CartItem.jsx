@@ -34,7 +34,7 @@ const CartItem = (props) => {
         ) : (
           <button
             className={classes.cancel}
-            onClick={() => props.onCancel(props.id)}
+            onClick={() => props.onCancel(props.id, props.quantity)}
           >
             Cancel Order
           </button>

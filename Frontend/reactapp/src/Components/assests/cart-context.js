@@ -8,7 +8,7 @@ const cartItems = [
   {
     id: "product-1",
     url: AppleWatch,
-    name: "Watch I7",
+    productName: "Watch I7",
     price: "1000",
     quantity: 2,
     totalAmount: "2000",
@@ -16,7 +16,7 @@ const cartItems = [
   {
     id: "product-6",
     url: PhotoFrame,
-    name: "Photo-frame",
+    productName: "Photo-frame",
     price: "70.00",
     quantity: 1,
     totalAmount: "70.00",
@@ -37,6 +37,7 @@ const cartReducer = (prevState, action) => {
     });
     const index = prevState.indexOf(exsistedItem);
     const cloneProduct = { ...exsistedItem };
+    const newProduct = { ...action.value };
 
     if (index >= 0) {
       cloneProduct.quantity += 1;
@@ -46,10 +47,10 @@ const cartReducer = (prevState, action) => {
       updatedArray = [...prevState];
       updatedArray[index] = cloneProduct;
     } else {
-      action.value.totalAmount = (
+      newProduct.totalAmount = (
         action.value.quantity * action.value.price
       ).toFixed(2);
-      updatedArray = [action.value, ...prevState];
+      updatedArray = [newProduct, ...prevState];
     }
     return updatedArray;
   } else if (action.type === "SAVE_EDITED_PRODUCT") {

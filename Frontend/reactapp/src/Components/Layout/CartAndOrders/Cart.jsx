@@ -8,12 +8,14 @@ import EmptyPage from "./Display/EmptyPage";
 
 import { useCartCxt } from "../../assests/cart-context";
 import { useMyOrdersCxt } from "../../assests/myorders-context";
+import { useProductsCxt } from "../../assests/products-context";
 
 const Cart = () => {
   const [haveToEditProduct, setHaveToEditProduct] = useState({});
   const cartCxt = useCartCxt();
   const myordersCxt = useMyOrdersCxt();
   const navigate = useNavigate();
+  const productsCxt = useProductsCxt();
 
   let element;
 
@@ -81,8 +83,24 @@ const Cart = () => {
 
   const placeOrderHandler = (productId) => {
     const product = findProduct(productId);
-    myordersCxt.myordersDispatchFn({ type: "PLACE_ORDER", value: product });
-    removeHandler(productId);
+    const exsistedProduct = {
+      ...productsCxt.productsList.find((item) => {
+        return product.id === item.id;
+      }),
+    };
+    // console.log(product.id);
+    // console.log(exsistedProduct);
+    // console.log(exsistedProduct.quantity, product.quantity);
+    if (exsistedProduct.quantity >= product.quantity) {
+      myordersCxt.myordersDispatchFn({ type: "PLACE_ORDER", value: product });
+      productsCxt.productsDispatchFn({ type: "PLACE_ORDER", value: product });
+      removeHandler(productId);
+      setTimeout(() => {
+        alert("Your order placed successfully :)");
+      }, 400);
+    } else {
+      alert("Not sufficient stocks available :(");
+    }
   };
 
   const items = cartCxt.cartItems.map((cartItem, index) => {
@@ -90,7 +108,7 @@ const Cart = () => {
       <div key={`product${index + 1}`}>
         <CartItem
           id={cartItem.id}
-          productName={cartItem.name}
+          productName={cartItem.productName}
           totalAmount={cartItem.totalAmount}
           quantity={cartItem.quantity}
           place="cart"

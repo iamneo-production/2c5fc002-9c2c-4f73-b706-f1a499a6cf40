@@ -4,12 +4,14 @@ import classes from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
 import { useCartCxt } from "../../assests/cart-context";
+import { useAuthCxt } from "../../assests/auth-context";
 
-const UserNavBar = (props) => {
+const UserNavBar = () => {
+  const authCxt = useAuthCxt();
   const cartCxt = useCartCxt();
   return (
     <Fragment>
-      <nav className={classes.header} id={props.id}>
+      <nav className={classes.header} id="userNavbar">
         <h1 className={classes.title}>AmazePack</h1>
         <div className={classes.navlinks}>
           <ul>
@@ -47,9 +49,7 @@ const UserNavBar = (props) => {
         <button
           id="logout"
           className={classes.logout}
-          onClick={() => {
-            props.onLogout(false);
-          }}
+          onClick={authCxt.logoutHandler}
         >
           Logout
         </button>

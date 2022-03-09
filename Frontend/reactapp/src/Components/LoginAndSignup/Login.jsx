@@ -7,25 +7,51 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../UI/Button";
 import classes from "./Login.module.css";
 import img1 from "../../images/Signup-image.png";
+import { useUserCxt } from "../assests/user-context";
+import { useAuthCxt } from "../assests/auth-context";
 
 const Login = (props) => {
   const [isError, setisError] = useState(false);
   const Userid = useRef();
   const Password = useRef();
-
+  const userCxt = useUserCxt();
+  const authCxt = useAuthCxt();
   const navigate = useNavigate();
+
+  const checkAdmin = (userid, password) => {
+    if (userid === "Admin@gmail.com" && password === "admin") {
+      authCxt.loginHandler();
+      authCxt.changeAdminHandler(true);
+      navigate("/addProduct");
+      return true;
+    }
+    return false;
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
     setisError(false);
     const userid = Userid.current.value;
     const password = Password.current.value;
+    if (checkAdmin(userid, password)) {
+      return;
+    }
     if (!(userid && password)) {
       setisError(true);
       return;
+    } else {
+      const tempUser = {
+        ...userCxt.usersList.find((user) => {
+          return userid === user.email;
+        }),
+      };
+      if (password === tempUser.password) {
+        authCxt.loginHandler();
+        navigate("/home");
+      } else {
+        alert("Username or password is wrong");
+      }
     }
-    props.onLogin(true);
-    navigate("/home");
   };
   return (
     <Fragment>

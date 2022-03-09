@@ -17,7 +17,7 @@ const Overlay = (props) => {
           <img className={classes.img} src={product.url} alt="item" />
         </div>
         <div className={classes.info}>
-          <p>Product name: {product.name}</p>
+          <p>Product name: {product.productName}</p>
           <p>
             Quantiy: <span>{product.quantity}</span>ps
           </p>

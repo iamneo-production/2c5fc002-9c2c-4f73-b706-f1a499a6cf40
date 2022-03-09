@@ -1,46 +1,68 @@
 import React from "react";
-import { useState, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Form } from "react-bootstrap";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import img1 from "../../images/Signup-image.png";
 import classes from "./Signup.module.css";
 import Button from "../UI/Button";
 
+import { useUserCxt } from "../assests/user-context";
+
+const intialValues = {
+  email: "",
+  userName: "",
+  mobileNumber: "",
+  password: "",
+  password1: "",
+};
+
 const Signup = () => {
-  const intialValues = {
-    email: "",
-    userName: "",
-    mobileNumber: "",
-    password: "",
-    password1: "",
-  };
+  const userCxt = useUserCxt();
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({ intialValues });
-  const [isSubmit, setIsSubmit] = useState(false);
+  // const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+  };
 
-    console.log(formValues);
+  const createUserObj = (value) => {
+    const tempUser = {};
+    tempUser.email = value.email;
+    tempUser.userName = value.userName;
+    tempUser.mobileNumber = value.mobileNumber;
+    tempUser.password = value.password;
+    return tempUser;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
+    const errs = validate(formValues);
+    const errsKey = Object.keys(errs);
+    if (errsKey.length === 0) {
+      userCxt.userDispatchFn({
+        type: "ADD_USER",
+        value: createUserObj(formValues),
+      });
+      navigate("/login");
+    } else {
+      setFormErrors(errs);
+    }
+    // setIsSubmit(true);
   };
 
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).Length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors, formValues, isSubmit]);
+  // useEffect(() => {
+  //   console.log(formErrors);
+  //   if (Object.keys(formErrors).Length === 0 && isSubmit) {
+  //     console.log(formValues);
+  //   }
+  // }, [formErrors, formValues, isSubmit]);
 
   const validate = (values) => {
     const errors = {};

@@ -11,22 +11,25 @@ import ProductList from "./Layout/HomePage/ProductList";
 import Cart from "./Layout/CartAndOrders/Cart";
 import MyOrders from "./Layout/CartAndOrders/MyOrders";
 
+import AdminProducts from "./Admin/AdminProducts";
+import { useAuthCxt } from "./assests/auth-context";
+
 const AllRoutes = (props) => {
+  const authCxt = useAuthCxt();
   return (
     <Fragment>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          index
-          path="/login"
-          element={<Login onLogin={props.changeIsLogged} />}
-        />
-        <Route path="/*" element={<HomePage onLogout={props.changeIsLogged} />}>
-          <Route element={<RequireAuth role={props.isLogged} />}>
+        <Route index path="/login" element={<Login />} />
+        <Route path="/*" element={<HomePage />}>
+          <Route element={<RequireAuth role={authCxt.isLogged} />}>
             <Route path="home" element={<ProductList />} />
             <Route path="cart/*" element={<Cart />} />
             <Route path="myorders/*" element={<MyOrders />} />
+          </Route>
+          <Route element={<RequireAuth role={authCxt.isAdmin} />}>
+            <Route path="addProduct" element={<AdminProducts />} />
           </Route>
         </Route>
       </Routes>
