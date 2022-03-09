@@ -1,12 +1,15 @@
 import React from "react";
 
+
 import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
+
 
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
   const qty = `${props.quantity} ps`;
+
 
   return (
     <div className={classes["item-container"]}>
@@ -48,6 +51,7 @@ const CartItem = (props) => {
           </button>
         )}
       </div>
+
     </div>
   );
 };
