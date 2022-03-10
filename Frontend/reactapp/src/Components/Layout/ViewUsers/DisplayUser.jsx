@@ -3,9 +3,8 @@ import Card from "../../UI/Card";
 import UserItem from "./UserItem";
 import { useUserCxt } from "../../assests/user-context";
 import EditUser from "./EditUser";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import classes from "./DisplayUser.module.css";
-import { useNavigate } from "react-router-dom";
 
 const DisplayUser = () => {
   const userCxt = useUserCxt();
@@ -16,8 +15,8 @@ const DisplayUser = () => {
   let element;
 
   const editHandler = (userId) => {
-    const tempUser = userCxt.usersList.find((user) => {
-      return userId === user.userId;
+    const tempUser = userCxt.usersList.find((item) => {
+      return userId === item.userId;
     });
     setUser(tempUser);
     navigate(`/admin/users-list/${userId}`);
@@ -36,13 +35,13 @@ const DisplayUser = () => {
   };
 
   const usersList = userCxt.usersList
-    .filter((user) => {
-      return user.userName.includes(enteredValue);
+    .filter((item) => {
+      return item.userName.includes(enteredValue);
     })
-    .map((user, index) => {
+    .map((item, index) => {
       return (
         <div key={index + 1}>
-          <UserItem user={user} onDelete={deleteHandler} onEdit={editHandler} />
+          <UserItem user={item} onDelete={deleteHandler} onEdit={editHandler} />
           <hr />
         </div>
       );
