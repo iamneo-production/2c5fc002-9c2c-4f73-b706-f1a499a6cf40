@@ -13,6 +13,7 @@ import MyOrders from "./Layout/CartAndOrders/MyOrders";
 
 import AdminProducts from "./Admin/AdminProducts";
 import { useAuthCxt } from "./assests/auth-context";
+import DisplayUser from "./Layout/ViewUsers/DisplayUser";
 
 const AllRoutes = (props) => {
   const authCxt = useAuthCxt();
@@ -30,6 +31,7 @@ const AllRoutes = (props) => {
           </Route>
           <Route element={<RequireAuth role={authCxt.isAdmin} />}>
             <Route path="addProduct" element={<AdminProducts />} />
+            <Route path="admin/users-list/*" element={<DisplayUser />} />
           </Route>
         </Route>
       </Routes>

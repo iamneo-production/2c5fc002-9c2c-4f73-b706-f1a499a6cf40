@@ -12,7 +12,7 @@
 
 .container {
   font-family: "Montserrat", sans-serif;
-  position: absolute;
+  position: fixed;
   top: 1rem;
   left: 22rem;
   width: 50%;

@@ -1,0 +1,56 @@
+.container {
+  font-family: "Montserrat", sans-serif;
+  position: fixed;
+  top: 1rem;
+  left: 25rem;
+  width: 40%;
+  z-index: 100;
+  text-align: center;
+}
+
+.content {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+}
+.content label,
+input {
+  display: block;
+}
+
+.content label {
+  margin-bottom: 17px;
+}
+
+.content input {
+  margin-bottom: 10px;
+}
+
+.content div {
+  text-align: left;
+  margin-right: 10px;
+}
+
+.footer {
+  padding: 20px;
+}
+
+.footer button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin-right: 15px;
+  height: 40px;
+  width: 70px;
+}
+
+.close {
+  background-color: rgb(235, 32, 32);
+  color: white;
+}
+
+.save {
+  background-color: rgb(136, 67, 247);
+  color: white;
+}

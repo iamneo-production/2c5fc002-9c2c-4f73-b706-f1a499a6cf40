@@ -1,0 +1,29 @@
+.width {
+  padding: 20px;
+  width: 40%;
+  height: 70px;
+}
+
+.width input {
+  border: 2px solid grey;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.content {
+  border: none;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  margin: auto;
+  overflow: hidden;
+  width: 50%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+
+.empty {
+  padding-top: 40px;
+  text-align: center;
+  height: 100px;
+}

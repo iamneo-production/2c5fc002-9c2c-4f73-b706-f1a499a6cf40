@@ -3,7 +3,7 @@ import ReactDom from "react-dom";
 import classes from "./ModalOverlay.module.css";
 import Card from "../Card";
 
-const Backdrop = (props) => {
+export const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onClose}></div>;
 };
 

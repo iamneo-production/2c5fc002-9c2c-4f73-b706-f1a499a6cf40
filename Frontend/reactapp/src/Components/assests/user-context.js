@@ -2,11 +2,6 @@ import React, { useReducer, useContext } from "react";
 
 const usersDetailsList = [
   {
-    userName: "admin@gmail.com",
-    password: "admin",
-    userType: "admin",
-  },
-  {
     userId: "user-1",
     userName: "senthilkaasi",
     email: "senthilkaasi3101@gmail.com",
