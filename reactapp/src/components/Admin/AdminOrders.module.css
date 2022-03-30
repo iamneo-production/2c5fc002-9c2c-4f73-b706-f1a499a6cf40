@@ -1,0 +1,27 @@
+.width {
+  width: 90%;
+}
+
+.table {
+  width: 100%;
+}
+
+.header {
+  background-color: blueviolet;
+  color: white;
+  font-size: 18px;
+  height: 4rem;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  text-align: center;
+}
+
+.tablerow {
+  height: 5rem;
+  border-bottom: 2px solid grey;
+  border-width: 80%;
+}
