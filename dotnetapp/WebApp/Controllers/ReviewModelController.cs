@@ -63,3 +63,66 @@ namespace AmazePackWeb.Controllers
                 });
             }
         }
+        
+        // PUT api/<PlanController>/5
+        //  [Route("editPlan")]
+        [HttpPut("editReview/{id}")]
+        public IActionResult Put(string id, [FromBody] ReviewModel plan)
+        {
+            if (plan == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var user = _context.ReviewModels.AsNoTracking().FirstOrDefault(e => e.ReviewId == plan.ReviewId);
+                if (user == null)
+                
+                {
+                    return NotFound(new
+                    {
+                        StatusCode = 404,
+                        Message = "Review not found",
+                    });
+                }
+                else
+                {
+                    _context.Entry(plan).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Review Updated Successfully"
+                    });
+                }
+            }
+        }
+
+        // DELETE api/<PlanController>/5
+        //  [Route("deletePlan")]
+        [HttpDelete("deleteReview/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var user = _context.ReviewModels.Find(id);
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "Cart not found",
+                });
+            }
+            else
+            {
+                _context.ReviewModels.Remove(user);
+                _context.SaveChanges();
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "Review Deleted"
+                });
+            }
+        }
+    
+    }
+}
