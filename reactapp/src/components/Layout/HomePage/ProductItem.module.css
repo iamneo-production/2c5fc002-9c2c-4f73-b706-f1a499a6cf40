@@ -1,0 +1,36 @@
+.container{
+    border: none;
+    border-radius: 20px;
+    /* background-color: white; */
+    background-color: rgb(100, 22, 173);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    color: white;
+    display: inline-block;
+    text-align: left;
+    overflow: hidden;
+    /* transition: .3s; */
+    height: 400px;
+    width: 300px;
+}
+
+.img{
+    height: 270px;
+    width: 100%;
+}
+
+.description{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 20px auto 10px;
+}
+
+.description h3{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer{
+    padding-left: 20px;
+}
