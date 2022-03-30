@@ -63,3 +63,66 @@ namespace AmazePackWeb.Controllers
                 });
             }
         }
+
+        // PUT api/<PlanController>/5
+        //  [Route("editPlan")]
+        [HttpPut("editCartItem/{id}")]
+        public IActionResult Put(string id, [FromBody] CartModel plan)
+        {
+            if (plan == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var user = _context.CartModels.AsNoTracking().FirstOrDefault(e => e.CartItemId == plan.CartItemId);
+                if (user == null)
+                
+                {
+                    return NotFound(new
+                    {
+                        StatusCode = 404,
+                        Message = "Cart not found",
+                    });
+                }
+                else
+                {
+                    _context.Entry(plan).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Cart Updated Successfully"
+                    });
+                }
+            }
+        }
+
+        // DELETE api/<PlanController>/5
+        //  [Route("deletePlan")]
+        [HttpDelete("deleteCartItem/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var user = _context.CartModels.Find(id);
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "Cart not found",
+                });
+            }
+            else
+            {
+                _context.CartModels.Remove(user);
+                _context.SaveChanges();
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "Cart Deleted"
+                });
+            }
+        }
+    
+    }
+}
