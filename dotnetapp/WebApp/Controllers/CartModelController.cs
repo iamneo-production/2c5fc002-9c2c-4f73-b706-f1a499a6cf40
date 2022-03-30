@@ -6,30 +6,31 @@ using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Amazepack_Project.Controllers
+namespace AmazePackWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderModelController : ControllerBase
+    public class CartModelController : ControllerBase
+
     {
         private readonly Amazepack_ProjectContext _context;
-        public OrderModelController(Amazepack_ProjectContext context)
+        public CartModelController(Amazepack_ProjectContext context)
         {
             _context = context;
         }
 
         // GET: api/<PlanController>
-        [HttpGet("getOrder")]
-        public IEnumerable<OrderModel> Get()
+        [HttpGet("getCartItems")]
+        public IEnumerable<CartModel> Get()
         {
-            return _context.OrderModels.ToList();
+            return _context.CartModels.ToList();
         }
 
         // GET api/<PlanController>/5
-        [HttpGet("getOrder/{id}")]
-        public IActionResult GetOrder(string id)
+        [HttpGet("getCartItem/{id}")]
+        public IActionResult GetCart(string id)
         {
-            var plan = _context.OrderModels.Find(id);
+            var plan = _context.CartModels.Find(id);
             if (plan != null)
             {
                 return Ok(new { StatusCode = 200, Plans = plan });
@@ -37,14 +38,14 @@ namespace Amazepack_Project.Controllers
             return NotFound(new
             {
                 StatusCode = 400,
-                Message = "Order Not Found"
+                Message = "Cart Not Found"
             });
         }
 
         // POST api/<PlanController>
         //  [Route("addPlan")]
-        [HttpPost("addOrder")]
-        public IActionResult Post([FromBody] OrderModel plan)
+        [HttpPost("addCartItem")]
+        public IActionResult Post([FromBody] CartModel plan)
         {
             if (plan == null)
             {
@@ -52,21 +53,21 @@ namespace Amazepack_Project.Controllers
             }
             else
             {
-                _context.OrderModels.Add(plan);
+                _context.CartModels.Add(plan);
                 _context.SaveChanges();
                 return Ok(new
 
                 {
                     StatusCode = 200,
-                    Message = "Order Added Successufully"
+                    Message = "Cart Added Successufully"
                 });
             }
         }
 
-// PUT api/<PlanController>/5
+        // PUT api/<PlanController>/5
         //  [Route("editPlan")]
-        [HttpPut("editOrder/{id}")]
-        public IActionResult Put(string id, [FromBody] OrderModel plan)
+        [HttpPut("editCartItem/{id}")]
+        public IActionResult Put(string id, [FromBody] CartModel plan)
         {
             if (plan == null)
             {
@@ -74,13 +75,14 @@ namespace Amazepack_Project.Controllers
             }
             else
             {
-                var user = _context.OrderModels.AsNoTracking().FirstOrDefault(e => e.OrderId == plan.OrderId);
+                var user = _context.CartModels.AsNoTracking().FirstOrDefault(e => e.CartItemId == plan.CartItemId);
                 if (user == null)
+                
                 {
                     return NotFound(new
                     {
                         StatusCode = 404,
-                        Message = "Order not found",
+                        Message = "Cart not found",
                     });
                 }
                 else
@@ -90,7 +92,7 @@ namespace Amazepack_Project.Controllers
                     return Ok(new
                     {
                         StatusCode = 200,
-                        Message = "Order Updated Successfully"
+                        Message = "Cart Updated Successfully"
                     });
                 }
             }
@@ -98,29 +100,29 @@ namespace Amazepack_Project.Controllers
 
         // DELETE api/<PlanController>/5
         //  [Route("deletePlan")]
-        [HttpDelete("deleteOrder/{id}")]
+        [HttpDelete("deleteCartItem/{id}")]
         public IActionResult Delete(string id)
         {
-            var user = _context.OrderModels.Find(id);
+            var user = _context.CartModels.Find(id);
             if (user == null)
             {
                 return NotFound(new
                 {
                     StatusCode = 404,
-                    Message = "Order not found",
+                    Message = "Cart not found",
                 });
             }
             else
             {
-                _context.OrderModels.Remove(user);
+                _context.CartModels.Remove(user);
                 _context.SaveChanges();
                 return Ok(new
                 {
                     StatusCode = 200,
-                    Message = "Order Deleted"
+                    Message = "Cart Deleted"
                 });
             }
         }
-
+    
     }
 }
