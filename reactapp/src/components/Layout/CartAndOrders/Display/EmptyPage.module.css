@@ -1,0 +1,11 @@
+.width {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 50px;
+  width: 50%;
+}
+
+.width p {
+  margin-bottom: 20px;
+}
