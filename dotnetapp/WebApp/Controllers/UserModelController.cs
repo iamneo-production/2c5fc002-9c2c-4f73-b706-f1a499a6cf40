@@ -63,3 +63,65 @@ namespace AmazePackWeb.Controllers
                 });
             }
         }
+        
+        // PUT api/<PlanController>/5
+        //  [Route("editPlan")]
+        [HttpPut("editUser/{id}")]
+        public IActionResult Put(string id, [FromBody] UserModel plan)
+        {
+            if (plan == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var user = _context.UserModels.AsNoTracking().FirstOrDefault(e => e.UserId == plan.UserId);
+                if (user == null)
+                {
+                    return NotFound(new
+                    {
+                        StatusCode = 404,
+                        Message = "User not found",
+                    });
+                }
+                else
+                {
+                    _context.Entry(plan).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "User Updated Successfully"
+                    });
+                }
+            }
+        }
+
+        // DELETE api/<PlanController>/5
+        //  [Route("deletePlan")]
+        [HttpDelete("deleteUser/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var user = _context.UserModels.Find(id);
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "User not found",
+                });
+            }
+            else
+            {
+                _context.UserModels.Remove(user);
+                _context.SaveChanges();
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "User Deleted"
+                });
+            }
+        }
+    
+    }
+}
