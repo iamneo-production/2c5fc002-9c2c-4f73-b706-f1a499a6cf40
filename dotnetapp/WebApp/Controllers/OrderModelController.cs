@@ -62,3 +62,65 @@ namespace Amazepack_Project.Controllers
                 });
             }
         }
+
+// PUT api/<PlanController>/5
+        //  [Route("editPlan")]
+        [HttpPut("editOrder/{id}")]
+        public IActionResult Put(string id, [FromBody] OrderModel plan)
+        {
+            if (plan == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var user = _context.OrderModels.AsNoTracking().FirstOrDefault(e => e.OrderId == plan.OrderId);
+                if (user == null)
+                {
+                    return NotFound(new
+                    {
+                        StatusCode = 404,
+                        Message = "Order not found",
+                    });
+                }
+                else
+                {
+                    _context.Entry(plan).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Order Updated Successfully"
+                    });
+                }
+            }
+        }
+
+        // DELETE api/<PlanController>/5
+        //  [Route("deletePlan")]
+        [HttpDelete("deleteOrder/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var user = _context.OrderModels.Find(id);
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "Order not found",
+                });
+            }
+            else
+            {
+                _context.OrderModels.Remove(user);
+                _context.SaveChanges();
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "Order Deleted"
+                });
+            }
+        }
+
+    }
+}
