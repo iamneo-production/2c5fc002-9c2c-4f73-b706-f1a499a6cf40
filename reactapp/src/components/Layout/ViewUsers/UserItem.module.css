@@ -1,0 +1,44 @@
+.user-item-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.img-div img {
+  height: 150px;
+  width: 150px;
+}
+
+.content {
+  margin-left: 20px;
+  padding-top: 20px;
+  width: 80%;
+}
+
+.content p {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.footer button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.edit {
+  background-color: rgb(136, 67, 247);
+  color: white;
+}
+
+.delete {
+  background-color: rgb(235, 32, 32);
+  color: white;
+}
