@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+
+import AllRoutes from "./Components/AllRoutes";
+// Context Providers
+import { CartContextProvider } from "./Components/assests/cart-context";
+import { MyOrdersContextProvider } from "./Components/assests/myorders-context";
+import UserContextProvider from "./Components/assests/user-context";
+import AuthContextProvider from "./Components/assests/auth-context";
+import { ProductsContextProvider } from "./Components/assests/products-context";
+import { ReviewContextProvider } from "./Components/assests/review-context";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContextProvider>
+        <ReviewContextProvider>
+          <ProductsContextProvider>
+            <UserContextProvider>
+              <CartContextProvider>
+                <MyOrdersContextProvider>
+                  <AllRoutes />
+                </MyOrdersContextProvider>
+              </CartContextProvider>
+            </UserContextProvider>
+          </ProductsContextProvider>
+        </ReviewContextProvider>
+      </AuthContextProvider>
     </div>
   );
 }
